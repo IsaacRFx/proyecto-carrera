@@ -8,7 +8,6 @@ from api.serializers.test_metrics import KuderTestSerializer
 from api.serializers.user import UserSignUpSerializer
 
 def validate_user(request, user_id):
-    user = TechUser.objects.get(id=user_id)
     try:
         user = TechUser.objects.get(id=user_id)
     except TechUser.DoesNotExist:
