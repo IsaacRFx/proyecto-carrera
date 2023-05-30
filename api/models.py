@@ -101,3 +101,21 @@ class TechUser(AbstractUser):
 
     def __str__(self):
         return str(self.identifier_number)
+
+class KuderTest(models.Model):
+    result_choices = (
+        ("exterior", "Exterior"),
+        ("mecanica", "Mecánica"),
+        ("calculo", "Cálculo"),
+        ("cientifica", "Científica"),
+        ("persuasiva", "Persuasiva"),
+        ("artistica", "Artística"),
+        ("literaria", "Literaria"),
+        ("musical", "Musical"),
+        ("servicio", "Servicio"),
+        ("oficina", "Oficina"),
+    )
+
+    user = models.ForeignKey(TechUser, on_delete=models.CASCADE)
+    date = models.DateTimeField(_("date"), auto_now_add=True)
+    result = models.CharField(_("result"), max_length=50, choices=result_choices)

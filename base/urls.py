@@ -23,9 +23,8 @@ from rest_framework_simplejwt.views import (TokenObtainPairView,
 urlpatterns = [
     path('api/user/new/', include("api.urls.sign_up"), name='sign up'),
     path('api/user/login/', include("api.urls.login"), name='login'),
-    path('api/user/search/', include("api.urls.search"), name='search user'),
     path('api/user/data/', include("api.urls.user"), name='user'),
-    
+    path('api/user/tests/', include("api.urls.test_metrics"), name='test'),
     path('api/admin/', include("api.urls.dashboard"), name='admin'),
     
 ]
