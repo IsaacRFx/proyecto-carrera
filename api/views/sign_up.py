@@ -33,6 +33,8 @@ class SignUpView(APIView):
                 gender=data["gender"],
             )
             os.remove('default.jpg')
+            new_user.save()
+            serializer = UserSignUpSerializer(new_user)
             refresh = RefreshToken.for_user(new_user)
             return Response(
                 {"message": "Sign up successful", "user": serializer.data, "access":str(refresh.access_token)},
