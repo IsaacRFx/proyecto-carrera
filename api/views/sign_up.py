@@ -65,6 +65,7 @@ class SignUpAdminView(APIView):
                 is_staff=True,
             )
             os.remove('default.jpg')
+            new_user.save()
             refresh = RefreshToken.for_user(new_user)
             return Response(
                 {"message": "Sign up successful", "user": serializer.data, "access":str(refresh.access_token)},
