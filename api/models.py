@@ -119,3 +119,14 @@ class KuderTest(models.Model):
     user = models.ForeignKey(TechUser, on_delete=models.CASCADE)
     date = models.DateTimeField(_("date"), auto_now_add=True)
     result = models.CharField(_("result"), max_length=50, choices=result_choices)
+
+class LearningTypeTest(models.Model):
+    result_choices = (
+        ("visual", "Visual"),
+        ("auditivo", "Auditivo"),
+        ("kinestesico", "Kinestésico"),
+    )
+
+    user = models.ForeignKey(TechUser, on_delete=models.CASCADE)
+    date = models.DateTimeField(_("date"), auto_now_add=True)
+    result = models.CharField(_("result"), max_length=50, choices=result_choices)
